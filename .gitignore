@@ -6,6 +6,7 @@ __pycache__/
 .venv/
 venv/
 data/jobs/
+backend/data/jobs/
 .DS_Store
 *.key
 .codex
