@@ -1,0 +1,10 @@
+pydantic-settings==2.6.1
+fastapi==0.115.4
+uvicorn[standard]==0.32.0
+python-multipart==0.0.12
+scikit-learn==1.5.2
+PyMuPDF==1.24.12
+google-generativeai==0.8.3
+requests==2.32.3
+feedparser==6.0.11
+python-dotenv==1.0.1

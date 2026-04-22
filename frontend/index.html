@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Plagiarism Intelligence Suite</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Serif:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+
+    <main class="container">
+      <section class="hero">
+        <p class="eyebrow">Research Integrity Platform</p>
+        <h1>Plagiarism Intelligence Suite</h1>
+        <p class="subtitle">
+          Upload one paper. We search related publications online, compare semantic overlap, and generate a cleaner revised draft with AI.
+        </p>
+      </section>
+
+      <section class="card">
+        <form id="analyze-form">
+          <label class="label" for="paper">Input paper (.pdf, .txt, .md)</label>
+          <input id="paper" name="file" type="file" accept=".pdf,.txt,.md" required />
+
+          <div class="row">
+            <label>
+              Candidate papers
+              <input type="number" name="candidate_limit" min="1" max="10" value="5" />
+            </label>
+            <label>
+              Sentence threshold
+              <input type="number" name="threshold" min="0.5" max="0.95" step="0.01" value="0.72" />
+            </label>
+          </div>
+
+          <button id="analyze-btn" type="submit">Run Analysis</button>
+        </form>
+      </section>
+
+      <section id="status" class="status hidden"></section>
+
+      <section id="results" class="results hidden">
+        <div class="metrics">
+          <article><h3>Overall Similarity</h3><p id="overall">-</p></article>
+          <article><h3>Plagiarism Risk</h3><p id="plag">-</p></article>
+          <article><h3>Originality</h3><p id="orig">-</p></article>
+        </div>
+
+        <div class="panel">
+          <h2>Closest Matching Papers</h2>
+          <div id="papers"></div>
+        </div>
+
+        <div class="panel">
+          <h2>Flagged Sentences</h2>
+          <div id="sentences"></div>
+        </div>
+
+        <div class="panel">
+          <h2>Revised Document</h2>
+          <button id="copy-btn" class="secondary">Copy Revised Text</button>
+          <pre id="corrected"></pre>
+        </div>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

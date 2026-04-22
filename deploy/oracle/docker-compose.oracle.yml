@@ -1,0 +1,26 @@
+services:
+  backend:
+    build:
+      context: ../../backend
+    container_name: plagiarism-backend
+    env_file:
+      - ../../backend/.env
+    volumes:
+      - ../../data:/app/data
+    ports:
+      - '127.0.0.1:8000:8000'
+    mem_limit: 650m
+    cpus: 0.75
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ../../frontend
+    container_name: plagiarism-frontend
+    depends_on:
+      - backend
+    ports:
+      - '127.0.0.1:8080:80'
+    mem_limit: 128m
+    cpus: 0.25
+    restart: unless-stopped
